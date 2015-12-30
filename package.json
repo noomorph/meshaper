@@ -1,0 +1,31 @@
+{
+  "name": "schleifer",
+  "version": "1.0.0",
+  "description": "Word learning tool",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "typescript": "^1.7.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/noomorph/schleifer.git"
+  },
+  "keywords": [
+    "learning",
+    "languages"
+  ],
+  "author": "Yaroslav Serhieiev",
+  "license": "Artistic-2.0",
+  "bugs": {
+    "url": "https://github.com/noomorph/schleifer/issues"
+  },
+  "homepage": "https://github.com/noomorph/schleifer#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
