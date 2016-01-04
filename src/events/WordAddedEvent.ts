@@ -1,14 +1,16 @@
-import Language = require('../core/Language');
+import IWordPointer = require("../core/language/WordPointer");
+import Language = require('../core/language/Language');
+import Word = require("../core/language/Word");
 
-class WordAddedEvent {
+class WordAddedEvent implements IWordPointer {
 	id: number;
+	language: Language;
 	word: string;
-	lang: Language;
 
-	constructor(id: number, word: string, lang: Language) {
+	constructor(id: number, language: Language, word: string) {
 		this.id = id;
+		this.language = language;
 		this.word = word;
-		this.lang = lang;
 	}
 }
 

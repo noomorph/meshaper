@@ -1,0 +1,4 @@
+interface IWordLinks {
+}
+
+export = IWordLinks;

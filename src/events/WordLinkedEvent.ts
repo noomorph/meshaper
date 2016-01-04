@@ -1,5 +1,5 @@
-import WordPointer = require('../core/WordPointer');
-import LinkType = require('../core/LinkType');
+import WordPointer = require('../core/language/WordPointer');
+import LinkType = require('../core/language/LinkType');
 
 class WordLinkedEvent {
 	wordFrom: WordPointer;

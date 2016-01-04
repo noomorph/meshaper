@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "Word learning tool",
   "main": "index.js",
-  "devDependencies": {
-    "chai": "^3.4.1",
-    "mocha": "^2.3.4",
-    "typescript": "^1.7.5"
-  },
   "scripts": {
+    "build": "tsc --rootDir src; tsc --rootDir test; exit 0",
     "test": "mocha"
   },
   "repository": {
@@ -27,5 +23,10 @@
   "homepage": "https://github.com/noomorph/schleifer#readme",
   "dependencies": {
     "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "typescript": "^1.7.5"
   }
 }
