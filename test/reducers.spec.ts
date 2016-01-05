@@ -12,29 +12,35 @@ import Language = require("../src/core/language/Language");
 import rootReducer = require('../src/reducers/index');
 import AppState = require("../src/state/AppState");
 import Word = require("../src/core/language/Word");
+import LinkType = require("../src/core/language/LinkType");
 
 /**
  * Globals
  */
 
 const expect = chai.expect;
+const { EN, UK } = Language;
 
 /**
  * Unit tests
  */
-describe('rootReducer', () => {
+describe('application state', () => {
     var state: AppState;
 
     beforeEach(function () {
         state = rootReducer();
     });
 
-    it('creates an app state at start', function () {
+    it('should be empty at start', function () {
         expect(state).to.be.an.instanceOf(AppState);
     });
 
-    it('does not throw in attempt to get an un-existing word', function () {
+    it('should not throw in attempt to get an un-existing word via .getWord() API', function () {
         expect(state.getWord({ id: 1, language: Language.DE })).to.be.undefined;
+    });
+
+    it('should not have any languages within', function () {
+        expect(state.langs.size).to.eq(0);
     });
 
     describe('when first word of the language added', function () {
@@ -45,18 +51,37 @@ describe('rootReducer', () => {
             state = rootReducer(state, event);
         });
 
-        it('adds a new entry to languages map', function () {
+        it('should add a new entry to languages map', function () {
             expect(state.langs.has(event.language)).to.be.true;
         });
 
-        it('adds a new entry to words map of that language', function () {
-            var word: Word = state.langs.get(event.language).get(event.id);
+        it('should add a new entry to words map of that language', function () {
+            var word = state.langs.get(event.language).get(event.id);
             expect(word.text).to.eq(event.word);
         });
 
-        it('returns that word via .getWord() API', function () {
-            var word: Word = state.getWord({ id: event.id, language: event.language });
+        it('should return that word via .getWord() API', function () {
+            var word = state.getWord({id: event.id, language: event.language});
             expect(word.text).to.eq(event.word);
+        });
+    });
+
+    describe('when a link between words added', function () {
+        var event: WordLinkedEvent;
+
+        beforeEach(function () {
+            var e1 = new WordAddedEvent(1, EN, 'peace');
+            var e2 = new WordAddedEvent(1, UK, 'мир');
+            event = new WordLinkedEvent(e1, e2, LinkType.Translation);
+
+            state = [e1, e2, event].reduce(rootReducer, state);
+        });
+
+        it('should link word1 to word2', function () {
+            var translations = state.getWord(event.wordFrom).links.translations;
+
+            expect(translations).to.have.lengthOf(1);
+            expect(translations[0]).to.eql(event.wordTo);
         });
     });
 });

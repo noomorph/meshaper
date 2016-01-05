@@ -6,7 +6,7 @@ class Word implements IWordPointer {
     id: number;
     language: Language;
     text: string;
-    links: IWordLinks = null;
+    links: IWordLinks;
 
     private _pronounced: string;
     get pronounced(): string {
@@ -20,6 +20,9 @@ class Word implements IWordPointer {
         this.id = id;
         this.language = language;
         this.text = text;
+        this.links = {
+            translations: [],
+        };
     }
 }
 

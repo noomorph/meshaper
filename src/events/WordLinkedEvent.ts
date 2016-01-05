@@ -5,13 +5,11 @@ class WordLinkedEvent {
 	wordFrom: WordPointer;
 	wordTo: WordPointer;
 	linkType: LinkType;
-	bidirectional: boolean;
 
-	constructor(wordFrom: WordPointer, wordTo: WordPointer, linkType: LinkType, bidirectional: boolean = true) {
+	constructor(wordFrom: WordPointer, wordTo: WordPointer, linkType: LinkType) {
 		this.wordFrom = wordFrom;
 		this.wordTo = wordTo;
 		this.linkType = linkType;
-		this.bidirectional = bidirectional;
 	}
 }
 
