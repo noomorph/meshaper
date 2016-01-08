@@ -4,8 +4,8 @@
   "description": "Word learning tool",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --rootDir src; tsc --rootDir test; exit 0",
-    "test": "mocha"
+    "build": "tsc",
+    "test": "tsc && mocha"
   },
   "repository": {
     "type": "git",

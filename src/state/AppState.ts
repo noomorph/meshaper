@@ -1,3 +1,5 @@
+/// <reference path="../../node_modules/typescript/lib/lib.es6.d.ts" />
+
 import Word = require("../core/language/Word");
 import Language = require("../core/language/Language");
 import IWordPointer = require("../core/language/WordPointer");

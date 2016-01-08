@@ -1,5 +1,3 @@
-/// <reference path="../../../../typings/lodash/lodash.d.ts" />
-
 import _ = require('lodash');
 import HebrewMatrix = require('./matrix');
 import codes = require('./codes');

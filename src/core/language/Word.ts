@@ -1,12 +1,12 @@
 import Language = require("./Language");
+import WordLinks = require("./WordLinks");
 import IWordPointer = require("./WordPointer");
-import IWordLinks = require("./WordLinks");
 
 class Word implements IWordPointer {
     id: number;
     language: Language;
     text: string;
-    links: IWordLinks;
+    links: WordLinks;
 
     private _pronounced: string;
     get pronounced(): string {
@@ -20,9 +20,7 @@ class Word implements IWordPointer {
         this.id = id;
         this.language = language;
         this.text = text;
-        this.links = {
-            translations: [],
-        };
+        this.links = new WordLinks();
     }
 }
 

@@ -25,6 +25,7 @@ const { EN, UK } = Language;
  * Unit tests
  */
 describe('application state', () => {
+
     var state: AppState;
 
     beforeEach(function () {
@@ -77,8 +78,8 @@ describe('application state', () => {
             state = [e1, e2, event].reduce(rootReducer, state);
         });
 
-        it('should link word1 to word2', function () {
-            var translations = state.getWord(event.wordFrom).links.translations;
+        it('should show that word via LinkType.Any', function () {
+            var translations = state.getWord(event.wordFrom).links.get(LinkType.Any);
 
             expect(translations).to.have.lengthOf(1);
             expect(translations[0]).to.eql(event.wordTo);

@@ -6,4 +6,7 @@ function! StrTrim(txt)
 endfunction
 
 let $PATH = StrTrim(system('npm bin'))."/:".$PATH
-let g:syntastic_typescript_tsc_args = "-t ES5 --module"
+let g:syntastic_typescript_tsc_args = "-t ES5 --module commonjs --sourcemap"
+let g:typescript_compiler_options = "-t ES5 --module commonjs --sourcemap"
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.js$|\.map$'
+" let g:syntastic_debug             = 1

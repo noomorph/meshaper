@@ -1,5 +1,4 @@
 import _ = require('lodash');
-import collapseTextChangeRangesAcrossMultipleVersions = ts.collapseTextChangeRangesAcrossMultipleVersions;
 import Word = require("../core/language/Word");
 import AppState = require("../state/AppState");
 import WordLinkedEvent = require("../events/WordLinkedEvent");
@@ -13,15 +12,13 @@ function wordAdded(state: AppState, event: WordAddedEvent) : AppState {
 
     var word = new Word(event.id, event.language, event.word);
     state.langs.get(event.language).set(word.id, word);
+
     return state;
 }
 
 function wordLinked(state: AppState, event: WordLinkedEvent) {
     var word = state.getWord(event.wordFrom);
-
-    if (event.linkType === LinkType.Translation) {
-        word.links.translations.push(_.clone(event.wordTo));
-    }
+    word.links.add(event.linkType, [event.wordTo]);
 
     return state;
 }
