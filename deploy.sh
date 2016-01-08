@@ -7,6 +7,7 @@ set -e # exit with nonzero exit code if anything fails
 # rm -rf dist || exit 0;
 # mkdir dist;
 
+tsd install
 npm test
 
 # if [ $GH_BRANCH = "master" ]; then
