@@ -5,14 +5,14 @@
  * Module dependencies.
  */
 
-import chai = require('chai');
+import * as chai from 'chai';
 import WordAddedEvent = require('../src/events/WordAddedEvent');
 import WordLinkedEvent = require('../src/events/WordLinkedEvent');
 import Language = require("../src/core/language/Language");
-import rootReducer = require('../src/reducers/index');
 import AppState = require("../src/state/AppState");
 import Word = require("../src/core/language/Word");
 import LinkType = require("../src/core/language/LinkType");
+import rootReducer from '../src/reducers';
 
 /**
  * Globals

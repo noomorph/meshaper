@@ -35,4 +35,4 @@ function rootReducer(state: AppState = new AppState(), event: any = {}) {
     return state;
 }
 
-export = rootReducer;
+export default rootReducer;
