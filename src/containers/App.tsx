@@ -20,7 +20,7 @@ class App extends React.Component<IApplicationProps, IApplicationState> {
     }
     render() {
         return (
-            <div>Hello, world!</div>
+            <div>Hello, there!</div>
         )
     }
 }

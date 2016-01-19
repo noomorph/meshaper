@@ -8,6 +8,7 @@ var srcFolder = path.resolve(__dirname, 'src');
 var testFolder = path.resolve(__dirname, 'test');
 var projectFolders = [srcFolder, testFolder];
 
+
 module.exports = {
 
     context: path.resolve(__dirname, 'src'),
@@ -25,7 +26,9 @@ module.exports = {
         port: 8000,
     },
 
-    entry: 'main',
+    entry: [
+        'main',
+    ],
 
     stats: {
         colors: true,
@@ -48,8 +51,12 @@ module.exports = {
         //    loader: 'file-loader?name=[path][name].[ext]',
         //    include: []
         //}, {
-            test: /\.tsx?$/,
+            test: /\.ts$/,
             loader: 'awesome-typescript-loader',
+            include: projectFolders,
+        }, {
+            test: /\.tsx$/,
+            loader: 'react-hot!awesome-typescript-loader',
             include: projectFolders,
         }, {
             test: /\.css$/,
@@ -63,6 +70,7 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(srcFolder, 'index.html')
         }),
