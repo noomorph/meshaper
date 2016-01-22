@@ -3,24 +3,31 @@
 /// <reference path="../../typings/redux/redux.d.ts" />
 /// <reference path="../../typings/react-redux/react-redux.d.ts" />
 
+declare var require: (modulePath: string) => any;
+
 import * as React from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
-interface IApplicationProps {
-}
+import IApplicationProps from "../common/IApplicationProps";
+import IApplicationState from "../common/IApplicationState";
 
-interface IApplicationState {
-}
+const css = require('./WordTrainingPage.css');
 
-class App extends React.Component<IApplicationProps, IApplicationState> {
+class WordTrainingPage extends React.Component<IApplicationProps, IApplicationState> {
     constructor(props: IApplicationProps) {
         super(props);
     }
     render() {
         return (
-            <div>Hello, there!</div>
+            <MasterPage>
+                <div className={css.page}>
+                    <div className={css.searchWords}>
+                        <input className={css.searchInput} type="search" />
+                    </div>
+                </div>
+            </MasterPage>
         )
     }
 }
@@ -40,4 +47,4 @@ function mapDispatchToProps(dispatch): IApplicationProps {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(WordTrainingPage);

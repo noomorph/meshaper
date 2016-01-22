@@ -1,0 +1,20 @@
+.topbar {
+    composes: top-bar from 'app.css';
+    border: 0;
+    height: 60px;
+}
+
+.title {
+    composes: top-bar-title from 'app.css';
+    padding: 0 0.75em;
+    font-weight: 400;
+    /* text-transform: uppercase; */
+}
+
+.content {
+    composes: content from 'app.css';
+}
+
+.topbar ~ .content {
+    border-top: 60px solid transparent;
+}

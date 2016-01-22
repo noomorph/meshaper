@@ -27,11 +27,15 @@
   "homepage": "https://github.com/noomorph/schleifer#readme",
   "dependencies": {
     "babel-polyfill": "^6.3.14",
+    "classnames": "^2.2.3",
+    "history": "^2.0.0-rc2",
     "lodash": "^3.10.1",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",
-    "redux": "^3.0.5"
+    "react-router": "^2.0.0-rc5",
+    "redux": "^3.0.5",
+    "translate.js": "^0.3.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
