@@ -9,8 +9,7 @@ import 'babel-polyfill';
 import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route } from 'react-router';
-import createHistory from 'history/lib/createBrowserHistory';
+import { browserHistory, Router, Route } from 'react-router';
 import configureStore from './utils/store';
 import 'main.css';
 
@@ -20,10 +19,10 @@ const store = configureStore();
 
 render(
     <Provider store={store}>
-        <Router history={createHistory()}>
+        <Router history={browserHistory}>
             <Route path="/" component={WordTrainingPage} />
             <Route path="/training" component={WordTrainingPage} />
         </Router>
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('container')
 );

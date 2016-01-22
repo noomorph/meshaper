@@ -23,7 +23,7 @@ module.exports = {
         contentBase: 'dist/',
         host: '0.0.0.0',
         publicPath: '/',
-        port: 8000,
+        port: 8001,
     },
 
     entry: [
@@ -60,10 +60,10 @@ module.exports = {
             include: projectFolders,
         }, {
             test: /\.css$/,
-            loader: 'style!css!autoprefixer?browsers=last 2 versions',
+            loader: 'style!css?modules!autoprefixer?browsers=last 2 versions',
             include: srcFolder
         }, {
-            test: /\.(png|jpg|svg)$/,
+            test: /\.(png|jpg|svg|ttf|woff)$/,
             loader: 'url-loader?limit=8192',
             include: path.resolve(__dirname, 'src')
         }]
